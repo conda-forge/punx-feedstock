@@ -1,7 +1,7 @@
 About punx
 ==========
 
-Home: http://punx.readthedocs.io
+Home: https://prjemian.github.io/punx/
 
 Package license: CC-BY-4.0
 
@@ -11,7 +11,7 @@ Summary: Python Utilities for NeXus
 
 Development: https://github.com/prjemian/punx
 
-Documentation: http://punx.readthedocs.io
+Documentation: https://prjemian.github.io/punx/
 
 Current build status
 ====================
