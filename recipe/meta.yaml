@@ -19,14 +19,13 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.7
     - pip
   run:
-    - python >=3.6
+    - python >=3.7
     - h5py
     - lxml
     - numpy
-    - pygithub >=1.32
     - pyqt >=5
     - pyresttable
     - requests
