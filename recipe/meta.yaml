@@ -1,6 +1,6 @@
 {% set name = "punx" %}
-{% set version = "0.3.0" %}
-{% set sha256 = "b742472336393dcc40c04fa4275608accd0376458052a7d562f21ef17c0e5d3c" %}
+{% set version = "0.3.3" %}
+{% set sha256 = "33be0022264964740a7a6827d4a05ff8a333dfd897b4eb3dc1b1a2bebfb0d3aa" %}
 
 package:
   name: {{ name|lower }}
