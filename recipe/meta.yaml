@@ -1,6 +1,6 @@
 {% set name = "punx" %}
-{% set version = "0.3.0" %}
-{% set sha256 = "b742472336393dcc40c04fa4275608accd0376458052a7d562f21ef17c0e5d3c" %}
+{% set version = "0.3.4" %}
+{% set sha256 = "0eda9911cee3b89628dc9a68985c9bdc9c9a2b6d8d50213e08ebf212c0af3c03" %}
 
 package:
   name: {{ name|lower }}
@@ -14,21 +14,30 @@ build:
   number: 0
   entry_points:
     - punx=punx.main:main
+  # per https://github.com/pypa/setuptools_scm/issues/357#issuecomment-846476165
+  # SETUPTOOLS_SCM_PRETEND_VERSION="$(python3 setup.py --version)" pip install .
+  script: SETUPTOOLS_SCM_DEBUG=1 SETUPTOOLS_SCM_PRETEND_VERSION="$(python3 setup.py --version)" {{ PYTHON }} -m pip install . -vv
+  # skip: true  # [py<38 and py>310]
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python >=3.7
+    - conda-verify
     - pip
+    - python >=3.8
+    - setuptools-scm >=6.2
   run:
-    - python >=3.7
-    - h5py
+    - h5py >=3
+    - hdf5plugin
     - lxml
     - numpy
-    - pyqt >=5
-    - pyresttable
+    - python >=3.8
+    - pip
+    - pyqt =5
+    - pyRestTable
     - requests
+    - sip
 
 test:
   imports:
