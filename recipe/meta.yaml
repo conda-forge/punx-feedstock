@@ -23,9 +23,10 @@ build:
 
 requirements:
   host:
+    - conda-verify
     - pip
     - python >=3.8
-    - setuptools-scm
+    - setuptools-scm >=6.2
   run:
     - h5py >=3
     - hdf5plugin
