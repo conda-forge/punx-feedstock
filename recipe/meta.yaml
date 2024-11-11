@@ -1,6 +1,6 @@
 {% set name = "punx" %}
-{% set version = "0.3.4" %}
-{% set sha256 = "0eda9911cee3b89628dc9a68985c9bdc9c9a2b6d8d50213e08ebf212c0af3c03" %}
+{% set version = "0.3.5" %}
+{% set sha256 = "89e5f30f533d5b60e6dde4bbf687c3f19a2a9a935e6ae1bd0ae01a8cdbd6aedd" %}
 
 package:
   name: {{ name|lower }}
@@ -26,7 +26,8 @@ requirements:
     - conda-verify
     - pip
     - python >=3.8
-    - setuptools-scm >=6.2
+    - setuptools >=64
+    - setuptools-scm >=8.0
   run:
     - h5py >=3
     - hdf5plugin
