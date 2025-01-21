@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - punx=punx.main:main
   # per https://github.com/pypa/setuptools_scm/issues/357#issuecomment-846476165
