@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - punx=punx.main:main
   # per https://github.com/pypa/setuptools_scm/issues/357#issuecomment-846476165
@@ -25,7 +25,7 @@ requirements:
   host:
     - conda-verify
     - pip
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools >=64
     - setuptools-scm >=8.0
   run:
@@ -33,7 +33,7 @@ requirements:
     - hdf5plugin
     - lxml
     - numpy
-    - python >=3.8
+    - python >={{ python_min }}
     - pip
     - pyqt =5
     - pyRestTable
@@ -41,6 +41,8 @@ requirements:
     - sip
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - punx
   commands:
