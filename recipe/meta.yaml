@@ -24,7 +24,7 @@ requirements:
   host:
     - conda-verify
     - pip
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools >=64
     - setuptools-scm >=8.0
   run:
@@ -32,7 +32,7 @@ requirements:
     - hdf5plugin
     - lxml
     - numpy
-    - python >=3.8
+    - python >={{ python_min }}
     - pip
     - pyqt =5
     - pyRestTable
@@ -40,6 +40,8 @@ requirements:
     - sip
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - punx
   commands:
