@@ -13,11 +13,9 @@ build:
   number: 2
   entry_points:
     - punx=punx.main:main
-  # per https://github.com/pypa/setuptools_scm/issues/357#issuecomment-846476165
-  # SETUPTOOLS_SCM_PRETEND_VERSION="$(python3 setup.py --version)" pip install .
-  # script: SETUPTOOLS_SCM_DEBUG=1 SETUPTOOLS_SCM_PRETEND_VERSION="$(python3 setup.py --version)" {{ PYTHON }} -m pip install . -vv
-  # skip: true  # [py<38 and py>310]
   noarch: python
+  # per https://github.com/pypa/setuptools_scm/issues/357#issuecomment-846476165
+  # skip: true  # [py<38 and py>310]
   script: SETUPTOOLS_SCM_DEBUG=1 SETUPTOOLS_SCM_PRETEND_VERSION="$(python3 setup.py --version)" {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
