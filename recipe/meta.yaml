@@ -1,6 +1,5 @@
 {% set name = "punx" %}
 {% set version = "0.3.5" %}
-{% set sha256 = "89e5f30f533d5b60e6dde4bbf687c3f19a2a9a935e6ae1bd0ae01a8cdbd6aedd" %}
 
 package:
   name: {{ name|lower }}
@@ -8,18 +7,16 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: "89e5f30f533d5b60e6dde4bbf687c3f19a2a9a935e6ae1bd0ae01a8cdbd6aedd"
 
 build:
-  number: 1
+  number: 2
   entry_points:
     - punx=punx.main:main
-  # per https://github.com/pypa/setuptools_scm/issues/357#issuecomment-846476165
-  # SETUPTOOLS_SCM_PRETEND_VERSION="$(python3 setup.py --version)" pip install .
-  script: SETUPTOOLS_SCM_DEBUG=1 SETUPTOOLS_SCM_PRETEND_VERSION="$(python3 setup.py --version)" {{ PYTHON }} -m pip install . -vv
-  # skip: true  # [py<38 and py>310]
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  # per https://github.com/pypa/setuptools_scm/issues/357#issuecomment-846476165
+  # skip: true  # [py<38 and py>310]
+  script: SETUPTOOLS_SCM_DEBUG=1 SETUPTOOLS_SCM_PRETEND_VERSION="$(python3 setup.py --version)" {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
